@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>IMC</title>
+</head>
+
+<body>
+    <header class="linkVolta">
+        <a href="../index.html">Voltar</a>
+    </header>
+    <div class="cardCentral">
+        <h1 class="tituloCentral">Cálculo do IMC</h1>
+
+        <label for="altura">Altura (M)</label>
+        <br>
+        <input type="number" id="altura" name="altura" class="inputControl">
+        <br>
+        <label for="peso">Peso (Kg)</label>
+        <br>
+        <input type="number" id="peso" name="peso" class="inputControl">
+        <br>
+        <button onclick="calcula()" class="inputControl">Calcular</button>
+        <br>
+        <p class="mediaCentral"><span id="imc"></span></p>
+        <p>Aluno: Carlos Felipe Wanderley</p>
+    </div>
+    <script>
+        let imc = 0;
+
+        function calcula() {
+            let altura = document.getElementById("altura").value;
+            let peso = document.getElementById("peso").value;
+            let imc = document.getElementById("imc");
+
+            if (peso <= 0 || altura <= 0) {
+                alert('Digite valores válidos para peso e altura!');
+            } else {
+                let valorIMC = (peso / (altura * altura)).toFixed(1);
+                let classificacao = "";
+
+                if (valorIMC < 20) {
+                    classificacao = valorIMC + " – Abaixo do peso normal";
+                } else if (valorIMC <= 25) {
+                    classificacao = valorIMC + " – Peso normal";
+                } else if (valorIMC < 30) {
+                    classificacao = valorIMC + " – Sobrepeso";
+                } else if (valorIMC < 35) {
+                    classificacao = valorIMC + " – Obesidade grau 1";
+                } else if (valorIMC < 40) {
+                    classificacao = valorIMC + " – Obesidade grau 2";
+                } else {
+                    classificacao = valorIMC + " – Obesidade grau 3";
+                }
+
+                imc.textContent = classificacao;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

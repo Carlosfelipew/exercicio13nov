@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Prompt média</title>
+</head>
+
+<body onload="verificarSituacao()">
+    <header class="linkVolta"><a href = "../index.html">Voltar</a> </header>
+    <div class="cardCentral">
+        <h1 class="tituloCentral">Média</h1>
+
+        <p class="mediaCentral"><span id="media" class="mediaCentral"></span></p>
+
+        <p class="situacaoAluno"><span id="situacao" class="situacaoAluno"></span></p>
+        <p>Aluno: Carlos Felipe Wanderley</p>
+    </div>
+    <script>
+
+
+        function verificarSituacao() {
+            var n1 = parseFloat(prompt("Digite aqui a primeira nota", ["Digitar somente números"]));
+            var n2 = parseFloat(prompt("Digite aqui a segunda nota", ["Digitar somente números"]));
+
+
+            let media = (n1 + n2) / 2;
+            let situacao = "";
+            let cor = "";
+
+            if (media >= 6.0) {
+                situacao = "Aprovado";
+                cor = "blue";
+            } else {
+                situacao = "Reprovado";
+                cor = "#AA4A44";
+
+            }
+
+            document.getElementById("media").innerHTML = media;
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").style.color = cor;
+        }
+
+    </script>
+
+</body>
+
+</html>

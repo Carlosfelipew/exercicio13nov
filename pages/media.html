@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Média</title>
+</head>
+
+<body>
+    <header class="linkVolta"><a href="../index.html">Voltar</a> </header>
+    <div class="cardCentral">
+        <h1 class="tituloCentral">Média de notas</h1>
+        <br>
+        <input type="text" id="idNota1" class="inputControl" placeholder="Digite aqui a primeira nota">
+        <br>
+
+        <input type="text" id="idNota2" class="inputControl" placeholder="Digite aqui a segunda nota">
+        <br>
+
+        <p><button onclick="verificarSituacao()" class="inputControl">Verificar Situação</button></p>
+        <br>
+
+        <p class="mediaCentral">
+            <span id="media"></span>
+        </p>
+        <br>
+        <p class="situacaoAluno">
+            <span id="situacao"></span>
+        </p>
+        <br>
+        <p>Aluno: Carlos Felipe Wanderley</p>
+    </div>
+
+    <script>
+
+        function verificarSituacao() {
+            let n1 = parseFloat(document.getElementById("idNota1").value);
+            let n2 = parseFloat(document.getElementById("idNota2").value);
+
+
+            let media = (n1 + n2) / 2;
+            let situacao = "";
+            let cor = "";
+
+            if (media >= 6.0) {
+                situacao = "Aprovado";
+                cor = "blue";
+            } else {
+                situacao = "Reprovado";
+                cor = "#AA4A44";
+            }
+
+            document.getElementById("media").innerHTML = media;
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").style.color = cor;
+        }
+
+    </script>
+
+</body>
+
+</html>

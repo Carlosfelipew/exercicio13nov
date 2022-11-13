@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Lista</title>
+</head>
+
+<body>
+    <header class="linkVolta"><a href = "../index.html">Voltar</a> </header>
+    <div class="cardCentral">
+        <h1 class="tituloCentral">Adicione um elemento à lista</h1>
+
+        <br>
+        <ul id="myList">
+            <li>Café</li>
+            <li>Chá</li>
+        </ul>
+        <br>
+
+        <input type="text" id="item" name="item" class="inputControl" placeholder="Digite o item aqui">
+        <br>
+        <button id="btn" class="inputControl">Adicionar item</button>
+        <br>
+        <form id="form">
+            <br>
+            <p>Escolha uma cor para o item</p>
+            <br>
+            <ul>
+                <input type="radio" id="red" name="cores" value="#AA4A44" class="inputControl">
+                <label for="red">vermelho</label><br>
+
+                <input type="radio" id="green" name="cores" value="green" class="inputControl">
+                <label for="green">verde</label><br>
+
+                <input type="radio" id="blue" name="cores" value="blue" class="inputControl">
+                <label for="blue">azul</label><br>
+            </ul>
+        </form>
+        <p>Aluno: Carlos Felipe Wanderley</p>
+    </div>
+    <script>
+        document.getElementById("btn").addEventListener("click", myFunction);
+
+        function myFunction() {
+
+            const cor = document.querySelector('input[name="cores"]:checked').value;
+            // Create an "li" node:
+            const node = document.createElement("li");
+
+            // Create a text node:
+            const textnode = document.createTextNode(document.getElementById("item").value);
+
+            // Append the text node to the "li" node:
+            node.appendChild(textnode);
+
+            // Append the "li" node to the list:
+            document.getElementById("myList").appendChild(node).style.color = cor;
+
+        }
+    </script>
+</body>
+
+</html>
